@@ -30,9 +30,9 @@ const NearByLocation = (enearByLoc: props) => {
   const regionNames = new Intl.DisplayNames(["en"], { type: "region" });
 
   useEffect(() => {
-    setData(enearByLoc.prop.response.entities);
+    setData(enearByLoc?.prop?.response?.entities);
     console.log(
-      enearByLoc.prop.response.entities,
+      enearByLoc?.prop?.response?.entities,
       "enearByLoc.prop.response.entities"
     );
     // if (callNearByApi != "client-side") {

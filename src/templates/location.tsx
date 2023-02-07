@@ -129,11 +129,11 @@ export const config: TemplateConfig = {
       "c_metaTitle",
       // "logo"
       /* DM fields */
-      // "dm_directoryParents.name",
-      // "dm_directoryParents.slug",
-      // "dm_directoryParents.meta.entityType"
-      // "dm_directoryParents.c_addressRegionDisplayName",
-    ],
+      "dm_directoryParents.name",
+      "dm_directoryParents.slug",
+      "dm_directoryParents.meta.entityType",
+      "dm_directoryParents.c_addressRegionDisplayName",
+          ],
     localization: {
       locales: ["en"],
       primary: false,
@@ -358,12 +358,13 @@ const Location: Template<ExternalApiRenderData> = ({
     what3WordsAddress,
     description,
     yextDisplayCoordinate,
-    // dm_directoryParents,
-    slug,
+    dm_directoryParents,
+       slug,
     c_storeHighlights,
     googlePlaceId,
     _site,
   } = document;
+  console.log("data",dm_directoryParents)
   let templateData = { document: document, __meta: __meta };
   let hoursSchema = [];
   let breadcrumbScheme = [];
@@ -405,19 +406,19 @@ const Location: Template<ExternalApiRenderData> = ({
     }
   }
 
-  // dm_directoryParents &&
-  //   dm_directoryParents.map((i: any, index: any) => {
-  //     if (index != 0) {
-  //       breadcrumbScheme.push({
-  //         "@type": "ListItem",
-  //         position: index,
-  //         item: {
-  //           "@id": `${stagingBaseUrl}/${i.slug}`,
-  //           name: i.name,
-  //         },
-  //       });
-  //     }
-  //   });
+  dm_directoryParents &&
+    dm_directoryParents.map((i: any, index: any) => {
+      if (index != 0) {
+        breadcrumbScheme.push({
+          "@type": "ListItem",
+          position: index,
+          item: {
+            "@id": `${stagingBaseUrl}/${i.slug}`,
+            name: i.name,
+          },
+        });
+      }
+    });
   let url = "";
   let Name: any = document.name.toLowerCase().toString();
   Name = name.replace(/[&\/\\#^+()$~%.'":*?<>{}!@]/g, "");
@@ -535,8 +536,8 @@ const Location: Template<ExternalApiRenderData> = ({
         <Header
           HeaderLogo={_site.c_header.headerLogo}
           HeaderLabels={_site.c_header.navigationLinks}
-        ></Header>
-        <BreadCrumbs name={name} parents={""} address={address}></BreadCrumbs>
+        />
+        <BreadCrumbs name={name} parents={dm_directoryParents.name} address={address}></BreadCrumbs>
 
         <Banner
           Name={name}
@@ -630,7 +631,7 @@ const Location: Template<ExternalApiRenderData> = ({
           // what3WordsAddress={what3WordsAddress}
         />
 
-        <Footer FooterData={_site.c_footer}></Footer>
+        <Footer FooterData={_site.c_footer}/>
         {/* <Footer
           data={_site.c_footerLinks}
           address={_site.address}
