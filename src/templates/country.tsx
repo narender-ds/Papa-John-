@@ -316,16 +316,10 @@ const Country: Template<TemplateRenderProps> = ({
       >
         {" "}
         <AnalyticsScopeProvider name={"header"}>
-        {/* <Header
-            logo={_site.c_logo}
-            headerLinks={_site.c_headerLinks}
-            // facebookPageUrl={_site.facebookPageUrl}
-            // instagramHandle={_site.instagramHandle}
-            // twitterHandle={_site.twitterHandle}
-            // c_tikTok={_site.c_tikTok}
-            // appStore={_site.c_appStore}
-            // playStore={_site.c_playStore}
-          /> */}
+        <Header
+          HeaderLogo={_site.c_header.headerLogo}
+          HeaderLabels={_site.c_header.navigationLinks}
+        />
           <BreadCrumbs
             name={name}
             parents={dm_directoryParents}
@@ -354,18 +348,7 @@ const Country: Template<TemplateRenderProps> = ({
               </div>
             </div>
           </div>
-          {/* <Footer
-          logo={_site.c_logo}
-
-          section1={_site.c_footer_section1}
-          section1heading={_site.c_footer_section1.heading}
-          section2={_site.c_footerSection2}
-          section2heading={_site.c_footerSection2.heading}
-          section3={_site.c_footer_section3}
-          section3heading={_site.c_footer_section3.heading}
-          footerDescription={_site.c_footerDescription}
-        
-        /> */}
+          <Footer FooterData={_site.c_footer}/>
         </AnalyticsScopeProvider>
       </AnalyticsProvider>
     </>
