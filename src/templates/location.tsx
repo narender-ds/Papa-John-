@@ -537,7 +537,7 @@ const Location: Template<ExternalApiRenderData> = ({
           HeaderLogo={_site.c_header.headerLogo}
           HeaderLabels={_site.c_header.navigationLinks}
         />
-        <BreadCrumbs name={name} parents={dm_directoryParents.name} address={address}></BreadCrumbs>
+        <BreadCrumbs name={name} parents={dm_directoryParents} address={address}></BreadCrumbs>
 
         <Banner
           Name={name}
