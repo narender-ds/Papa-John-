@@ -1,0 +1,12 @@
+{
+  "$id": "ce_headerFooter",
+  "filter": {
+    "entityIds": ["global_layouts"]
+  },
+  "source": "knowledgeGraph",
+  "fields": ["name", "c_header", "c_footer"],
+  "localization": {
+    "locales": ["en"],
+    "primary": false
+  }
+}
